@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PublicClientApplication } from "@azure/msal-browser";
+import { msalConfig } from "./authConfig";
+
+export const msalInstance = new PublicClientApplication(msalConfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App msalInstance={msalInstance}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
